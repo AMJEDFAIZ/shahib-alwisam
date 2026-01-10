@@ -1,0 +1,694 @@
+@extends('layouts.site')
+
+@section('content')
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="{{ asset('assets/img/hero.webp') }}"
+                alt="خلفية هندسية" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70 mix-blend-multiply"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10 text-center text-white pt-20">
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-accent/20 border border-accent/50 text-accent text-sm font-semibold mb-4 animate-fade-in-up">مؤسسة
+                صاحب الوسام</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight animate-fade-in-up animation-delay-200">
+                نبني المستقبل <br> <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-white">بأعلى معايير
+                    الجودة</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-10 animate-fade-in-up animation-delay-400">
+                نقدم حلولاً هندسية وإنشائية متكاملة تجمع بين الخبرة العريقة والتقنيات الحديثة لتحويل رؤيتكم إلى واقع ملموس.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-600">
+                <a href="{{ route('projects.index') }}"
+                    class="bg-accent hover:bg-yellow-600 text-white px-8 py-4 rounded-lg font-bold transition-all shadow-lg hover:shadow-accent/50 transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                    أعمالنا
+                </a>
+                <a href="{{ route('contact') }}"
+                    class="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-lg font-bold transition-all hover:shadow-lg transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-briefcase"></i>
+                    تواصل معنا
+                </a>
+            </div>
+        </div>
+
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white/70 hover:text-white transition-colors">
+                <i class="fa-solid fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/2 relative reveal">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="{{ asset('assets/img/about.webp') }}"
+                            alt="من نحن"
+                            class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-primary/20 hover:bg-transparent transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl hidden md:block border-r-4 border-accent">
+                        <div class="text-4xl font-bold text-primary mb-1">15+</div>
+                        <div class="text-sm text-gray-500">سنة من الخبرة</div>
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-dots-pattern opacity-30"></div>
+                </div>
+                <div class="w-full lg:w-1/2 reveal">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-12 h-1 bg-accent rounded-full"></div>
+                        <span class="text-accent font-bold uppercase tracking-wider">من نحن</span>
+                    </div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">شريكك الموثوق في البناء والتعمير</h2>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">
+                        تعتبر مؤسسة صاحب الوسام من الشركات الرائدة في مجال المقاولات العامة والهندسة. نحن نفتخر بتقديم خدمات
+                        متكاملة تبدأ من التخطيط والتصميم وصولاً إلى التنفيذ والتسليم، مع الالتزام بأعلى معايير الجودة
+                        والسلامة.
+                    </p>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        فريقنا المكون من مهندسين وفنيين ذوي خبرة عالية يعمل بشغف لتحقيق تطلعات عملائنا، سواء في المشاريع
+                        السكنية، التجارية، أو الصناعية.
+                    </p>
+
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-accent text-xl"></i>
+                            <span class="text-gray-700 font-medium">تنفيذ مشاريع وفق الجداول الزمنية المحددة</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-accent text-xl"></i>
+                            <span class="text-gray-700 font-medium">استخدام أحدث التقنيات ومواد البناء</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-check-circle text-accent text-xl"></i>
+                            <span class="text-gray-700 font-medium">فريق عمل احترافي ومتخصص</span>
+                        </li>
+                    </ul>
+
+                    <a href="{{ route('about') }}"
+                        class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors group">
+                        اعرف المزيد عنا
+                        <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Vision & Mission Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <!-- Vision -->
+                <a href="vision.html"
+                    class="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary group reveal h-full">
+                    <div
+                        class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary text-2xl">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">رؤيتنا</h3>
+                    <p class="text-gray-600">
+                        أن نكون الشركة الرائدة والمرجعية الأولى في مجال المقاولات والإنشاءات، من خلال تقديم حلول مبتكرة
+                        ومستدامة تفوق توقعات عملائنا.
+                    </p>
+                </a>
+
+                <!-- Mission -->
+                <a href="vision.html"
+                    class="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-accent group reveal h-full">
+                    <div
+                        class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors text-accent text-2xl">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">رسالتنا</h3>
+                    <p class="text-gray-600">
+                        الالتزام بأعلى معايير الجودة والسلامة في تنفيذ المشاريع، وبناء علاقات طويلة الأمد مع عملائنا مبنية
+                        على الثقة والشفافية.
+                    </p>
+                </a>
+
+                <!-- Values -->
+                <a href="vision.html"
+                    class="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-secondary group reveal h-full">
+                    <div
+                        class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors text-gray-600 text-2xl">
+                        <i class="fa-solid fa-gem"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-primary mb-4">قيمنا</h3>
+                    <p class="text-gray-600">
+                        الجودة، النزاهة، الابتكار، العمل الجماعي، والمسؤولية المجتمعية هي الركائز الأساسية التي يقوم عليها
+                        عملنا اليومي.
+                    </p>
+                </a>
+            </div>
+
+            <div class="text-center reveal">
+                <a href="vision.html"
+                    class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors border border-primary/20 hover:border-accent px-6 py-3 rounded-full hover:bg-white hover:shadow-md">
+                    اقرأ المزيد عن رؤيتنا ورسالتنا
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+
+    <section class="py-20 bg-white animate-fade-in-up">
+        <div class="container mx-auto px-4 ">
+            <div class="text-center mb-16 reveal">
+                <span class="text-accent font-bold uppercase tracking-wider block mb-2">ماذا نقدم</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">خدماتنا المتميزة</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            @if ($services->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up md-10">
+                    @foreach ($services as $index => $service)
+                        <!-- Service 1 -->
+                        <div class="group bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 reveal border border-gray-100 delay-100 "
+                            data-aos-delay="{{ $index * 100 }}">
+
+                            <div class="relative h-64 overflow-hidden">
+                                <div class="absolute inset-0 bg-primary/40 group-hover:bg-primary/20 transition-all z-10">
+                                </div>
+                                @if ($service->image_path)
+                                    <img src="{{ asset('storage/' . $service->image_path) }}" alt="{{ $service->title }}"
+                                        class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                                @else
+                                    <div
+                                        class="absolute bottom-4 right-4 z-20 bg-white p-3 rounded-lg shadow-md text-accent">
+                                        <i class="fa-solid  {!! $service->icon !!} text-2xl"></i>
+                                    </div>
+                                @endif
+                                @if ($service->icon)
+                                    <div
+                                        class="absolute bottom-4 right-4 z-20 bg-white p-3 rounded-lg shadow-md text-accent">
+                                        <i class="fa-solid  {!! $service->icon !!} text-2xl"></i>
+                                    </div>
+                                @else
+                                    <div
+                                        class="absolute bottom-4 right-4 z-20 bg-white p-3 rounded-lg shadow-md text-accent">
+                                        <i class="fa-solid fa-trowel-bricks text-2xl"></i>
+                                    </div>
+                                @endif
+                            </div>
+                            <div class="p-8">
+                                <h3 class="text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                                    <a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a>
+                                </h3>
+                                <p class="text-gray-600 mb-6 line-clamp-3">
+                                    {{ Str::limit($service->description, 100) }}
+                                </p>
+                                <a href="{{ route('services.show', $service->slug) }}"
+                                    class="inline-flex items-center text-primary font-bold hover:text-accent transition-colors">
+                                    اقرأ المزيد <i
+                                        class="fa-solid fa-arrow-left mr-2 transform group-hover:-translate-x-1 transition-transform"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="text-center reveal mt-7 relative">
+                    <a href="{{ route('services.index') }}"
+                        class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors border border-primary/20 hover:border-accent px-6 py-3 rounded-full hover:bg-white hover:shadow-md">
+                        جميع الخدمات
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                </div>
+        </div>
+    @else
+        <div class="text-center text-gray-500 py-8">
+            <p>لا توجد خدمات متاحة حالياً.</p>
+        </div>
+        @endif
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="portfolio" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <span class="text-accent font-bold uppercase tracking-wider block mb-2">أعمالنا</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">
+                    مشاريع نفخر بها
+                </h2>
+                <div class="w-20 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Portfolio Grid -->
+            @if ($testimonials->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+
+                    <!-- Article 1 -->
+                    @foreach ($projects as $index => $project)
+                        <div
+                            class="portfolio-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 group border border-gray-100">
+                            <div class="relative h-56 overflow-hidden" data-aos-delay="{{ $index * 100 }}">
+
+                                @if ($project->main_image)
+                                    <img src="{{ asset('storage/' . $project->main_image) }}"
+                                        alt="{{ $project->title }}"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                @else
+                                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                                        <span class="text-gray-400">لا توجد صورة</span>
+                                    </div>
+                                @endif
+                                <div
+                                    class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                                    {{ $project->duration }}</div>
+                                <div
+                                    class="absolute bottom-0 right-0 bg-primary text-white text-xs px-3 py-1 rounded-tl-lg">
+                                    اعمالنا</div>
+                            </div>
+                            <div class="p-6">
+                                {{-- <div class="flex items-center gap-2 text-gray-500 text-xs mb-3">
+                                    <i class="fa-solid fa-user"></i> <span>الادمن</span>
+                                    <span class="mx-1">•</span>
+                                    <i class="fa-solid fa-comments"></i> <span>3 تعليقات</span>
+                                </div> --}}
+                                <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition-colors"><a
+                                        href="{{ route('projects.show', $project->slug) }}">{{ $project->title }}</a>
+                                </h3>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                    {{ Str::limit($project->description, 100) }}</p>
+                                <a href="{{ route('projects.show', $project->slug) }}"
+                                    class="text-accent font-medium hover:underline inline-flex items-center gap-1">اقرأ
+                                    المزيد <i class="fa-solid fa-arrow-left text-sm"></i></a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="{{ route('projects.index') }}"
+                        class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all">عرض
+                        كل المشاريع</a>
+                </div>
+            @else
+                <div class="text-center text-gray-500 py-8">
+                    <p>لا توجد اعمال متاحة حالياً.</p>
+                </div>
+            @endif
+
+            {{-- @if ($projects->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @foreach ($projects as $index => $project)
+                        <div class="group relative overflow-hidden rounded-lg shadow-md h-80" data-aos="fade-up"
+                            data-aos-delay="{{ $index * 100 }}">
+                            @if ($project->main_image)
+                                <img src="{{ asset('storage/' . $project->main_image) }}" alt="{{ $project->title }}"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            @else
+                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                                    <span class="text-gray-400">لا توجد صورة</span>
+                                </div>
+                            @endif
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                                <h3 class="text-white text-xl font-bold mb-1">{{ $project->title }}</h3>
+                                <p class="text-gray-200 text-sm mb-3">{{ $project->location ?? '' }}</p>
+                                <a href="{{ route('projects.show', $project->slug) }}"
+                                    class="inline-block bg-secondary text-primary text-sm font-bold px-4 py-2 rounded hover:bg-white transition w-fit">تفاصيل
+                                    المشروع</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="{{ route('projects.index') }}"
+                        class="inline-block border border-primary text-primary px-8 py-3 rounded hover:bg-primary hover:text-white transition font-bold">عرض
+                        جميع المشاريع</a>
+                </div>
+            @endif --}}
+        </div>
+    </section>
+    <!-- Experience & Skills Section -->
+    <section id="skills" class="py-20 bg-primary text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('assets/img/cubes.png')] opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <span class="text-accent font-bold uppercase tracking-wider block mb-2">خبراتنا</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                        لماذا تختار مؤسسة صاحب الوسام؟
+                    </h2>
+                    <p class="text-gray-300 mb-8 leading-relaxed">
+                        نمتلك سجلاً حافلاً من الإنجازات والخبرات المتراكمة التي تجعلنا
+                        الخيار الأمثل لمشروعك القادم. نجمع بين الدقة الهندسية والإبداع
+                        المعماري.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-6 mb-8">
+                        <a href="{{ route('about') }}"
+                            class="inline-flex items-center gap-2 text-accent font-bold hover:text-white transition-colors group">
+                            اكتشف المزيد من مهاراتنا
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </a>
+                        <a href="experience.html"
+                            class="inline-flex items-center gap-2 text-white font-bold hover:text-accent transition-colors group">
+                            عرض خبراتنا ومسيرتنا
+                            <i class="fa-solid fa-arrow-left group-hover:-translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+
+                    <!-- Skills Progress -->
+                    <div class="space-y-6">
+                        @foreach ($skills as $skill)
+                            <div>
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-bold">{{ $skill->name }}</span>
+                                    <span class="text-accent">{{ $skill->percentage }}%</span>
+                                </div>
+                                <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                    <div class="progress-bar bg-accent h-2.5 rounded-full transition-all duration-1000 ease-out"
+                                        style="width: {{ trim($skill->percentage) }}%" data-width="95"></div>
+                                </div>
+                            </div>
+                        @endforeach
+
+                        {{-- <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold">إدارة المشاريع</span>
+                                <span class="text-accent">98%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="progress-bar bg-accent h-2.5 rounded-full transition-all duration-1000 ease-out"
+                                    style="width: 0%" data-width="98"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold">التصميم الداخلي</span>
+                                <span class="text-accent">90%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="progress-bar bg-accent h-2.5 rounded-full transition-all duration-1000 ease-out"
+                                    style="width: 0%" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-bold">الالتزام بالوقت</span>
+                                <span class="text-accent">100%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2.5">
+                                <div class="progress-bar bg-accent h-2.5 rounded-full transition-all duration-1000 ease-out"
+                                    style="width: 0%" data-width="100"></div>
+                            </div>
+                        </div> --}}
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-6 reveal counter-container">
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 text-center hover:bg-white/20 transition-colors">
+                        <i class="fa-solid fa-diagram-project text-4xl text-accent mb-4"></i>
+                        <div class="text-4xl font-bold mb-2 counter" data-goal="{{ $totalprojects }}" data-suffix="+">
+                            {{ $totalprojects }}
+                        </div>
+                        <div class="text-gray-300">مشروع مكتمل</div>
+                    </div>
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 text-center hover:bg-white/20 transition-colors">
+                        <i class="fa-solid fa-users text-4xl text-accent mb-4"></i>
+                        <div class="text-4xl font-bold mb-2 counter" data-goal="45" data-suffix="+">
+                            0
+                        </div>
+                        <div class="text-gray-300">مهندس وفني</div>
+                    </div>
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 text-center hover:bg-white/20 transition-colors">
+                        <i class="fa-solid fa-award text-4xl text-accent mb-4"></i>
+                        <div class="text-4xl font-bold mb-2 counter" data-goal="12">
+                            0
+                        </div>
+                        <div class="text-gray-300">جائزة وشهادة</div>
+                    </div>
+                    <div
+                        class="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20 text-center hover:bg-white/20 transition-colors">
+                        <i class="fa-solid fa-smile text-4xl text-accent mb-4"></i>
+                        <div class="text-4xl font-bold mb-2 counter" data-goal="100" data-suffix="%">
+                            0
+                        </div>
+                        <div class="text-gray-300">رضا العملاء</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+
+
+            <div class="text-center mb-16 reveal">
+                <span class="text-accent font-bold uppercase tracking-wider block mb-2">شهادات نعتز بها</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-primary">ثقة عملائنا هي سر نجاحنا</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            @if ($testimonials->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                    @foreach ($testimonials as $index => $testimonial)
+                        <div class="bg-gray-50 p-8 rounded-xl shadow-lg relative reveal" data-aos="fade-up"
+                            data-aos-delay="{{ $index * 100 }}">
+
+                            <div
+                                class="absolute -top-4 -right-4 w-10 h-10 bg-accent rounded-full flex items-center justify-center text-white">
+                                <i class="fa-solid fa-quote-right"></i>
+                            </div>
+
+                            <p class="text-gray-600 mb-6 leading-relaxed italic break-all max-w-full">
+                                " {{ Str::limit($testimonial->content, 100) }}"
+                            </p>
+
+                            <div class="flex items-center gap-4">
+                                @if ($testimonial->image_path)
+                                    <img src="{{ asset('storage/' . $testimonial->image_path) }}"
+                                        alt="{{ $testimonial->client_name }}"
+                                        class="w-14 h-14 rounded-full object-cover shadow-sm">
+                                @else
+                                    <div
+                                        class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center ml-4 text-gray-500 font-bold text-lg">
+                                        {{ Str::substr($testimonial->client_name, 0, 1) }}
+                                    </div>
+                                @endif
+
+                                <div>
+                                    <h4 class="font-bold text-primary">{{ $testimonial->client_name }}</h4>
+                                    <p class="text-sm text-gray-500">{{ $testimonial->position }}</p>
+                                </div>
+                            </div>
+
+                            <!-- Stars Rating -->
+                            <div class="mt-4 flex text-accent text-sm gap-1">
+                                @for ($i = 1; $i <= 5; $i++)
+                                    @if ($i <= $testimonial->rating)
+                                        <i class="fa-solid fa-star"></i>
+                                    @else
+                                        <i class="fa-regular fa-star"></i>
+                                    @endif
+                                @endfor
+                            </div>
+
+                        </div>
+                    @endforeach
+
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="${{-- {{ route('testimonial.testimonial') }} --}}"
+                        class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all">
+                        عرض كل الاراّء
+                    </a>
+                </div>
+            @else
+                <div class="text-center text-gray-500 py-8">
+                    <p>لا توجد اّراء متاحة حالياً.</p>
+                </div>
+            @endif
+
+        </div>
+
+
+    </section>
+
+
+    <!-- Latest Blog Posts -->
+    {{-- <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+       <div class="flex justify-between items-end mb-12 reveal">
+          <div>
+            <span
+              class="text-accent font-bold uppercase tracking-wider block mb-2"
+              >المدونة</span
+            >
+            <h2 class="text-3xl md:text-4xl font-bold text-primary">
+              أحدث المقالات والأخبار
+            </h2>
+          </div>
+          <a
+            href="blog.html"
+            class="hidden md:inline-flex items-center gap-2 text-accent font-bold hover:text-primary transition-colors"
+          >
+            عرض جميع المقالات
+            <i class="fa-solid fa-arrow-left"></i>
+          </a>
+        </div>
+            @if ($latestPosts->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    @foreach ($latestPosts as $index => $post)
+                        <x-card :image="$post->image_path ? asset('storage/' . $post->image_path) : null" :title="$post->title" :description="$post->content" :link="route('blog.show', $post->slug)"
+                            linkText="اقرأ المزيد" :delay="$index * 100" />
+                    @endforeach
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="{{ route('blog.index') }}"
+                        class="inline-block border border-primary text-primary px-8 py-3 rounded hover:bg-primary hover:text-white transition font-bold">عرض
+                        المدونة</a>
+                </div>
+            @endif
+        </div>
+    </section> --}}
+    <section id="blog" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12 reveal">
+                <div>
+                    <span class="text-accent font-bold uppercase tracking-wider block mb-2">المدونة</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary">
+                        أحدث المقالات والأخبار
+                    </h2>
+                </div>
+                <a href="{{ route('blog.index') }}"
+                    class="hidden md:inline-flex items-center gap-2 text-accent font-bold hover:text-primary transition-colors">
+                    عرض جميع المقالات
+                    <i class="fa-solid fa-arrow-left"></i>
+                </a>
+            </div>
+
+            <!-- latestPosts Grid -->
+            @if ($latestPosts->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 reveal">
+
+                    <!-- Article 1 -->
+                    @foreach ($latestPosts as $index => $latestPost)
+                        <div
+                            class="portfolio-item bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2 group border border-gray-100">
+                            <div class="relative h-56 overflow-hidden" data-aos-delay="{{ $index * 100 }}">
+
+                                @if ($latestPost->image_path)
+                                    <img src="{{ asset('storage/' . $latestPost->image_path) }}"
+                                        alt="{{ $latestPost->title }}"
+                                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                                @else
+                                    <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                                        <span class="text-gray-400">لا توجد صورة</span>
+                                    </div>
+                                @endif
+                                {{--
+                                 <div class="absolute top-4 right-4 bg-accent text-white text-xs font-bold px-3 py-1 rounded-full">
+                                </div>
+                            <div
+                                class="absolute bottom-0 right-0 bg-primary text-white text-xs px-3 py-1 rounded-tl-lg">
+                                اعمالنا</div> --}}
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center gap-2 text-gray-500 text-xs mb-3 ">
+                                    <i class="fas fa-calendar-day"></i>
+                                    <span class="text-bold items-center "
+                                        style="font-weight: 700">{{ $latestPost->published_at->format('Y-m-d') }}</span>
+                                    {{-- <span class="mx-1">•</span> --}}
+                                    {{-- <i class="fa-solid fa-comments"></i> <span>3 تعليقات</span> --}}
+                                </div>
+                                <h3 class="text-xl font-bold text-primary mb-3 hover:text-accent transition-colors"><a
+                                        href="{{ route('blog.show', $latestPost->slug) }}">{{ $latestPost->title }}</a>
+                                </h3>
+                                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                                    {{ Str::limit($latestPost->content, 100) }}</p>
+                                <a href="{{ route('blog.index', $latestPost->slug) }}"
+                                    class="text-accent font-medium hover:underline inline-flex items-center gap-1">اقرأ
+                                    المزيد <i class="fa-solid fa-arrow-left text-sm"></i></a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+
+                <div class="text-center mt-12">
+                    <a href="{{ route('blog.index') }}"
+                        class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-bold py-3 px-8 rounded-full transition-all">عرض
+                        كل المقالات</a>
+                </div>
+            @else
+                <div class="text-center text-gray-500 py-8">
+                    <p>لا توجد مقالات متاحة حالياً.</p>
+                </div>
+            @endif
+
+            {{-- @if ($projects->count() > 0)
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    @foreach ($projects as $index => $project)
+                        <div class="group relative overflow-hidden rounded-lg shadow-md h-80" data-aos="fade-up"
+                            data-aos-delay="{{ $index * 100 }}">
+                            @if ($project->main_image)
+                                <img src="{{ asset('storage/' . $project->main_image) }}" alt="{{ $project->title }}"
+                                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                            @else
+                                <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                                    <span class="text-gray-400">لا توجد صورة</span>
+                                </div>
+                            @endif
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                                <h3 class="text-white text-xl font-bold mb-1">{{ $project->title }}</h3>
+                                <p class="text-gray-200 text-sm mb-3">{{ $project->location ?? '' }}</p>
+                                <a href="{{ route('projects.show', $project->slug) }}"
+                                    class="inline-block bg-secondary text-primary text-sm font-bold px-4 py-2 rounded hover:bg-white transition w-fit">تفاصيل
+                                    المشروع</a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="{{ route('projects.index') }}"
+                        class="inline-block border border-primary text-primary px-8 py-3 rounded hover:bg-primary hover:text-white transition font-bold">عرض
+                        جميع المشاريع</a>
+                </div>
+            @endif --}}
+        </div>
+    </section>
+
+
+    <!-- Call to Action -->
+
+
+    <section class="py-16 bg-primary relative overflow-hidden">
+        <div class="absolute inset-0 bg-accent/4 pattern-dots"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center reveal">
+            <h2 class="text-3xl font-bold text-white mb-6">هل أعجبتك أعمالنا؟</h2>
+            <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+                نحن جاهزون لتنفيذ مشروعك القادم بنفس مستوى الجودة والاحترافية.
+            </p>
+            <a href="{{ route('contact') }}"
+                class="inline-block bg-accent text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-lg">
+                تواصل معنا الآن
+            </a>
+        </div>
+    </section>
+    {{-- <section class="py-16 bg-primary text-white text-center">
+        <div class="container mx-auto px-4" data-aos="zoom-in">
+            <h2 class="text-3xl font-bold mb-4">هل لديك مشروع جاهز للتنفيذ؟</h2>
+            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">نحن هنا لتحويل رؤيتك إلى واقع. تواصل معنا اليوم لاستشارة مجانية.</p>
+            <x-button :href="route('contact')" color="primary">اطلب عرض سعر</x-button>
+        </div>
+    </section> --}}
+@endsection
