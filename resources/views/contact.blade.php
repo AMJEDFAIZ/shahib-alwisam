@@ -20,7 +20,7 @@
             <!-- Contact Info -->
             <div data-aos="fade-left">
                 <h3 class="text-2xl font-bold text-primary mb-6">معلومات الاتصال</h3>
-                
+
                 <div class="space-y-6">
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary ml-4 shrink-0">
@@ -31,7 +31,7 @@
                             <p class="text-gray-600">{{ $settings['address'] ?? 'المملكة العربية السعودية' }}</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary ml-4 shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
@@ -41,7 +41,7 @@
                             <p class="text-gray-600" dir="ltr">{{ $settings['phone'] ?? '+966 50 123 4567' }}</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary ml-4 shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
@@ -51,7 +51,7 @@
                             <p class="text-gray-600">{{ $settings['email'] ?? 'info@example.com' }}</p>
                         </div>
                     </div>
-                    
+
                     <div class="flex items-start">
                         <div class="w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary ml-4 shrink-0">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
@@ -65,7 +65,7 @@
 
                 <!-- Map Placeholder -->
                 <div class="mt-8 bg-gray-200 rounded-lg h-64 w-full flex items-center justify-center text-gray-500 overflow-hidden shadow-md">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.639379854486!2d46.67529531500356!3d24.71355198412351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2sus!4v1625687465213!5m2!1sen!2sus" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    <iframe src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
                 </div>
             </div>
 
