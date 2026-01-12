@@ -27,7 +27,7 @@
                   class="text-gray-600 font-medium hover:text-primary transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all hover:after:w-full">خدماتنا</a>
               <a href="{{ route('projects.index') }}"
                   class="text-gray-600 font-medium hover:text-primary transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all hover:after:w-full">أعمالنا</a>
-              <a href="#{{-- {{ route('testimonial.index') }} --}}"
+              <a href="{{ route('home') }}#testimonials"
                   class="text-gray-600 font-medium hover:text-primary transition-colors py-2 relative after:content-[''] after:absolute after:bottom-0 after:right-0 after:w-0 after:h-0.5 after:bg-accent after:transition-all hover:after:w-full">آراء
                   العملاء</a>
               <a href="{{ route('blog.index') }}"
@@ -45,32 +45,46 @@
 
       <!-- Mobile Menu Overlay -->
       <div id="mobile-menu"
-          class="fixed inset-0 bg-primary/95 z-50 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col justify-center items-center gap-6">
+          class="fixed inset-0 bg-primary/90 z-50 transform -translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-24 ">
+
+          <!-- Close Button -->
           <button id="close-menu-btn"
-              class="absolute top-6 right-6 text-white text-3xl hover:text-accent transition-colors">
+              class="absolute top-6 left-6 text-white text-3xl hover:text-accent transition-colors">
               <i class="fa-solid fa-times"></i>
           </button>
-          <a href="{{ route('home') }}"
-              class="mobile-link text-accent text-xl font-bold hover:text-white transition-colors">الرئيسية</a>
-          <a href="{{ route('about') }}"
-              class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">من
-              نحن</a>
-          {{-- <a href="vision.html"
-              class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">الرؤية والرسالة</a>
-          <a href="team.html" class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">فريق
-              العمل</a> --}}
-          <a href="{{ route('services.index') }}"
-              class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">خدماتنا</a>
-          <a href="{{ route('projects.index') }}"
-              class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">أعمالنا</a>
-          {{-- <a href="career.html"
-              class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">التوظيف</a> --}}
-          <a href="{{ route('blog.index') }}"
-              class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">المقالات</a>
-          {{-- <a href="quote.html" class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">طلب
-              عرض سعر</a> --}}
-          <a href="{{ route('contact') }}"
-              class="mobile-link bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-secondary transition-all">تواصل
-              معنا</a>
+
+          <nav class="flex flex-col items-center gap-6 bg-primary/90 pb-1">
+              <a href="{{ route('home') }}"
+                  class="mobile-link text-accent text-xl font-bold hover:text-white transition-colors">
+                  الرئيسية
+              </a>
+
+              <a href="{{ route('about') }}"
+                  class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">
+                  من نحن
+              </a>
+
+              <a href="{{ route('services.index') }}"
+                  class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">
+                  خدماتنا
+              </a>
+
+              <a href="{{ route('projects.index') }}"
+                  class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">
+                  أعمالنا
+              </a>
+
+              <a href="{{ route('blog.index') }}"
+                  class="mobile-link text-white text-xl font-bold hover:text-accent transition-colors">
+                  المقالات
+              </a>
+
+              <a href="{{ route('contact') }}"
+                  class="mobile-link bg-white text-primary px-8 py-3 rounded-full font-bold hover:bg-secondary transition-all mt-4 mb-2">
+                  تواصل معنا
+              </a>
+          </nav>
       </div>
+
+
   </header>

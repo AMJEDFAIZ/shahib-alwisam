@@ -42,6 +42,7 @@ class HomeController extends Controller
     public function about()
     {
         $skills = Skill::where('active', true)->orderBy('sort_order')->get();
+         $totalprojects = Project::count();
         $settings = Setting::all()->pluck('value', 'key');
         $meta_title = 'من نحن';
         $meta_description = $settings['site_description'] ?? null;
@@ -53,7 +54,7 @@ class HomeController extends Controller
             'مشاريعنا',
         ])->filter()->implode(', ');
 
-        return view('about', compact('skills', 'settings', 'meta_title', 'meta_description', 'meta_keywords'));
+        return view('about', compact('skills', 'settings', 'meta_title', 'meta_description', 'meta_keywords','totalprojects'));
     }
 
     public function contact()

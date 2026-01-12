@@ -104,7 +104,7 @@
 
     <!-- Lightbox -->
     <div id="lightbox"
-        class="fixed inset-0 z-[60] bg-black/95 {{-- hidden --}} opacity-0 transition-opacity duration-300 flex items-center justify-center">
+        class="fixed inset-0 z-[60] bg-black/95 hidden opacity-0 transition-opacity duration-300 flex items-center justify-center">
         <!-- Controls -->
         <div class="absolute top-6 right-6 flex items-center gap-4 z-50">
             <button id="lightbox-zoom"
@@ -132,6 +132,7 @@
         </div>
     </div>
     <script src="{{ asset('assets/js/main.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

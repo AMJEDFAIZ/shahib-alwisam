@@ -4,8 +4,7 @@
     <!-- Hero Section -->
     <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <img src="{{ asset('assets/img/hero.webp') }}"
-                alt="خلفية هندسية" class="w-full h-full object-cover">
+            <img src="{{ asset('assets/img/hero.webp') }}" alt="خلفية هندسية" class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70 mix-blend-multiply"></div>
         </div>
 
@@ -48,8 +47,7 @@
             <div class="flex flex-col lg:flex-row items-center gap-12">
                 <div class="w-full lg:w-1/2 relative reveal">
                     <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                        <img src="{{ asset('assets/img/about.webp') }}"
-                            alt="من نحن"
+                        <img src="{{ asset('assets/img/about.webp') }}" alt="من نحن"
                             class="w-full h-auto object-cover transform hover:scale-105 transition-transform duration-700">
                         <div class="absolute inset-0 bg-primary/20 hover:bg-transparent transition-colors duration-300">
                         </div>
@@ -104,52 +102,52 @@
     <!-- Vision & Mission Section -->
     <section class="py-16 bg-gray-50">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                 <!-- Vision -->
-                <a href="vision.html"
+                <a href="{{ route('about') }}"
                     class="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-primary group reveal h-full">
                     <div
                         class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors text-primary text-2xl">
                         <i class="fa-solid fa-eye"></i>
                     </div>
                     <h3 class="text-xl font-bold text-primary mb-4">رؤيتنا</h3>
-                    <p class="text-gray-600">
-                        أن نكون الشركة الرائدة والمرجعية الأولى في مجال المقاولات والإنشاءات، من خلال تقديم حلول مبتكرة
-                        ومستدامة تفوق توقعات عملائنا.
+                    <p class="mx-auto mb-8 leading-relaxed ">
+                        نسعى في <span class="text-accent  font-bold">
+                            مؤسسـة صاحب الوسـام</span> للمقاولات العامة أن
+                        نكون رواداً من خلال تقديم حلول مبتكرة لتنظيم وتنسيق
+
+                        جميع الاعمال الانشائية، نركز على تنفيذ مشاريع عالية
+                        الجودة تساهم في تعزيز البنية التحتية ودعم التنمية
+                        المستدامة، مع تبني التقنيات الحديثة وتطوير القوى
+                        العاملة المحلية لتحقيق رؤية .2030
+
                     </p>
                 </a>
 
                 <!-- Mission -->
-                <a href="vision.html"
+                <a href="{{ route('about') }}l"
                     class="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-accent group reveal h-full">
                     <div
                         class="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-accent group-hover:text-white transition-colors text-accent text-2xl">
                         <i class="fa-solid fa-bullseye"></i>
                     </div>
                     <h3 class="text-xl font-bold text-primary mb-4">رسالتنا</h3>
-                    <p class="text-gray-600">
-                        الالتزام بأعلى معايير الجودة والسلامة في تنفيذ المشاريع، وبناء علاقات طويلة الأمد مع عملائنا مبنية
-                        على الثقة والشفافية.
+                    <p class="mx-auto mb-8 leading-relaxed">
+                        نلتزم في <span class="text-accent  font-bold">
+                            مؤسسـة صاحب الوسـام</span>
+                        للمقاولات العامة بتحقيق التميز في
+                        تقديم خدمات البناء والتشييد.
+                        ونركز على تنفيذ مشاريع مبتكرة، حيث
+                        نتبنى أحدث التقنيات ونطور الكوادر
+                        المحلية لتحقيق أهدافنا التنموية
                     </p>
                 </a>
 
-                <!-- Values -->
-                <a href="vision.html"
-                    class="block bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border-t-4 border-secondary group reveal h-full">
-                    <div
-                        class="w-16 h-16 bg-secondary/20 rounded-full flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors text-gray-600 text-2xl">
-                        <i class="fa-solid fa-gem"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-primary mb-4">قيمنا</h3>
-                    <p class="text-gray-600">
-                        الجودة، النزاهة، الابتكار، العمل الجماعي، والمسؤولية المجتمعية هي الركائز الأساسية التي يقوم عليها
-                        عملنا اليومي.
-                    </p>
-                </a>
+
             </div>
 
             <div class="text-center reveal">
-                <a href="vision.html"
+                <a href="{{ route('about') }}"
                     class="inline-flex items-center gap-2 text-primary font-bold hover:text-accent transition-colors border border-primary/20 hover:border-accent px-6 py-3 rounded-full hover:bg-white hover:shadow-md">
                     اقرأ المزيد عن رؤيتنا ورسالتنا
                     <i class="fa-solid fa-arrow-left"></i>

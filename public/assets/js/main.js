@@ -5,7 +5,7 @@ const mobileMenu = document.getElementById('mobile-menu');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
 function toggleMenu() {
-    mobileMenu.classList.toggle('translate-x-full');
+    mobileMenu.classList.toggle('-translate-x-full');
     document.body.classList.toggle('overflow-hidden');
 }
 
@@ -19,7 +19,7 @@ if (closeMenuBtn) {
 
 mobileLinks.forEach(link => {
     link.addEventListener('click', () => {
-        if (!mobileMenu.classList.contains('translate-x-full')) {
+        if (!mobileMenu.classList.contains('-translate-x-full')) {
             toggleMenu();
         }
     });
@@ -65,13 +65,13 @@ if (filterButtons.length > 0) {
             // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active', 'bg-accent', 'text-white', 'border-accent'));
             filterButtons.forEach(btn => btn.classList.add('text-gray-600', 'border-gray-300'));
-            
+
             // Add active class to clicked button
             button.classList.add('active', 'bg-accent', 'text-white', 'border-accent');
             button.classList.remove('text-gray-600', 'border-gray-300');
-            
+
             const filterValue = button.getAttribute('data-filter');
-            
+
             portfolioItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                     item.classList.remove('hidden');
@@ -105,7 +105,7 @@ function startCount(el) {
     let count = 0;
     const duration = 2000; // 2 seconds
     const increment = goal / (duration / 16); // 60fps
-    
+
     let timer = setInterval(() => {
         count += increment;
         if (count >= goal) {
@@ -157,7 +157,7 @@ let isZoomed = false;
 function updateCurrentImages() {
     // Select all potential lightbox images
     const allCandidates = Array.from(document.querySelectorAll('.gallery-item img, .portfolio-item img, .lightbox-trigger img'));
-    
+
     // Filter out hidden images (those in hidden parents)
     currentImages = allCandidates.filter(img => {
         const parent = img.closest('.gallery-item, .portfolio-item');
@@ -170,13 +170,13 @@ function updateCurrentImages() {
 
 function openLightbox(imgElement) {
     updateCurrentImages(); // Refresh list based on current filters
-    
+
     const index = currentImages.indexOf(imgElement);
     if (index === -1) return;
-    
+
     currentImageIndex = index;
     updateLightboxImage();
-    
+
     lightbox.classList.remove('hidden');
     // Reset zoom state
     isZoomed = false;
@@ -206,7 +206,7 @@ function updateLightboxImage() {
     const img = currentImages[currentImageIndex];
     lightboxImg.src = img.src;
     lightboxImg.alt = img.alt;
-    
+
     // Update Caption
     if (lightboxCaption) {
         lightboxCaption.textContent = img.alt || 'صورة';
@@ -215,9 +215,9 @@ function updateLightboxImage() {
 
 function toggleZoom() {
     if (!lightboxImg) return;
-    
+
     isZoomed = !isZoomed;
-    
+
     if (isZoomed) {
         lightboxImg.classList.add('scale-[2]');
         lightboxImg.classList.remove('cursor-grab');
@@ -228,9 +228,9 @@ function toggleZoom() {
         lightboxImg.classList.add('cursor-grab');
         lightboxImg.classList.remove('cursor-grabbing');
         if (lightboxZoom) lightboxZoom.innerHTML = '<i class="fa-solid fa-magnifying-glass-plus"></i>';
-        
+
         // Reset position if dragged (if we add drag logic later)
-        lightboxImg.style.transform = ''; 
+        lightboxImg.style.transform = '';
     }
 }
 
@@ -244,7 +244,7 @@ function closeLightbox() {
     if (lightboxCaption) {
         lightboxCaption.classList.add('opacity-0', 'translate-y-2');
     }
-    
+
     setTimeout(() => {
         lightbox.classList.add('hidden');
         if (lightboxImg) lightboxImg.src = '';
@@ -255,15 +255,15 @@ function closeLightbox() {
 function nextImage() {
     if (currentImages.length === 0) return;
     currentImageIndex = (currentImageIndex + 1) % currentImages.length;
-    
+
     lightboxImg.style.opacity = '0';
     if (lightboxCaption) lightboxCaption.style.opacity = '0';
-    
+
     setTimeout(() => {
         updateLightboxImage();
         lightboxImg.style.opacity = '1';
         if (lightboxCaption) lightboxCaption.style.opacity = '1';
-        
+
         // Reset zoom
         isZoomed = false;
         lightboxImg.classList.remove('scale-[2]');
@@ -274,15 +274,15 @@ function nextImage() {
 function prevImage() {
     if (currentImages.length === 0) return;
     currentImageIndex = (currentImageIndex - 1 + currentImages.length) % currentImages.length;
-    
+
     lightboxImg.style.opacity = '0';
     if (lightboxCaption) lightboxCaption.style.opacity = '0';
-    
+
     setTimeout(() => {
         updateLightboxImage();
         lightboxImg.style.opacity = '1';
         if (lightboxCaption) lightboxCaption.style.opacity = '1';
-        
+
         // Reset zoom
         isZoomed = false;
         lightboxImg.classList.remove('scale-[2]');
@@ -299,7 +299,7 @@ function initLightboxTriggers() {
             e.stopPropagation();
             openLightbox(img);
         };
-        
+
         // Handle parent clicks if they are not links
         const parent = img.closest('.gallery-item, .portfolio-item');
         if (parent && !parent.querySelector('a')) { // Only if no link inside
@@ -337,9 +337,9 @@ if (lightbox) {
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (!lightbox || lightbox.classList.contains('hidden')) return;
-    
+
     if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextImage(); 
+    if (e.key === 'ArrowRight') nextImage();
     if (e.key === 'ArrowLeft') prevImage();
 });
 
