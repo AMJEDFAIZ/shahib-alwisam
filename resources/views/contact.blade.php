@@ -28,6 +28,7 @@
             </nav>
         </div>
     </section>
+    
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4">
 
@@ -135,7 +136,7 @@
                             </div>
                         </div>
 
-                        <button id="submit-btn" type="button"
+                        <button id="submit-btn" type="submit"
                             class="w-full bg-accent text-white py-3 rounded-lg font-bold hover:bg-primary transition-all">
                             إرسال الرسالة
                         </button>

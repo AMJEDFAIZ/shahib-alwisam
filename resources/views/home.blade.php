@@ -666,27 +666,259 @@
     </section>
 
 
+
     <!-- Call to Action -->
 
 
-    <section class="py-16 bg-primary relative overflow-hidden">
-        <div class="absolute inset-0 bg-accent/4 pattern-dots"></div>
-        <div class="container mx-auto px-4 relative z-10 text-center reveal">
-            <h2 class="text-3xl font-bold text-white mb-6">هل أعجبتك أعمالنا؟</h2>
-            <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
-                نحن جاهزون لتنفيذ مشروعك القادم بنفس مستوى الجودة والاحترافية.
-            </p>
-            <a href="{{ route('contact') }}"
-                class="inline-block bg-accent text-white px-8 py-3 rounded-full font-bold hover:bg-white hover:text-primary transition-all shadow-lg">
-                تواصل معنا الآن
-            </a>
+
+  <section id="contact" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+
+        <div class="flex flex-col lg:flex-row bg-white rounded-2xl shadow-xl overflow-hidden reveal mb-12">
+
+            <div class="w-full lg:w-5/12 bg-primary text-white p-12 relative overflow-hidden">
+                {{-- <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-accent rounded-full opacity-20"></div>
+                <div class="absolute top-10 -left-10 w-20 h-20 bg-accent rounded-full opacity-20"></div> --}}
+
+                <h3 class="text-3xl font-bold mb-8">معلومات التواصل</h3>
+                <p class="text-gray-300 mb-10 leading-relaxed">
+                    نحن هنا للإجابة على جميع استفساراتكم. لا تترددوا في التواصل معنا لمناقشة مشاريعكم القادمة.
+                </p>
+
+                <div class="space-y-8"> <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-accent shrink-0">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">موقعنا</h4>
+                            <p class="text-gray-300 text-sm">
+                                {{ $settings['address'] ?? 'المملكة العربية السعودية، الرياض' }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-accent shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">البريد الإلكتروني</h4>
+                            <p class="text-gray-300 text-sm font-sans" dir="ltr">
+                                {{ $settings['email'] ?? 'info@alwisam.com' }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center text-accent shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-1">رقم الهاتف</h4>
+                            <p class="text-gray-300 text-sm font-sans" dir="ltr">
+                                {{ $settings['phone'] ?? '+966 12 345 6789' }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-white/10">
+                    <h4 class="font-bold mb-4">تابعنا على</h4>
+                    <div class="flex gap-4">
+                        @if (isset($settings['whatsapp']))
+                         <a href="{{ $settings['linkedin'] }}"
+                             class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                             target="_blank"><i class="fab fa-whatsapp"></i></a>
+                     @endif
+                     @if (isset($settings['facebook']))
+                         <a href="{{ $settings['facebook'] }}"
+                             class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                             target="_blank"><i class="fab fa-facebook-f"></i></a>
+                     @endif
+                     @if (isset($settings['twitter']))
+                         <a href="{{ $settings['twitter'] }}"
+                             class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                             target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                     @endif
+                     @if (isset($settings['instagram']))
+                         <a href="{{ $settings['instagram'] }}"
+                             class=" w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors "
+                             target="_blank"><i class="fab fa-instagram"></i></a>
+                     @endif
+                     @if (isset($settings['linkedin']))
+                         <a href="{{ $settings['linkedin'] }}"
+                             class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                             target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                     @endif
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full lg:w-7/12 p-8 lg:p-12 bg-white">
+                <h3 class="text-2xl font-bold text-primary mb-6">أرسل لنا رسالة</h3>
+
+                <div id="contact-alert" class="hidden mb-4 p-4 rounded-lg text-sm font-medium"></div>
+
+                <form id="contact-form" class="space-y-6">
+                    @csrf
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 text-sm font-bold mb-2">الاسم الكامل</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none transition-colors"
+                                placeholder="الاسم الكامل">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-gray-700 text-sm font-bold mb-2">البريد الإلكتروني</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none transition-colors"
+                                placeholder="example@email.com">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="phone" class="block text-gray-700 text-sm font-bold mb-2">رقم الهاتف</label>
+                            <input type="tel" id="phone"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none transition-colors"
+                                placeholder="05xxxxxxxx">
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-gray-700 text-sm font-bold mb-2">الموضوع</label>
+                            <select id="subject"
+                                class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none transition-colors appearance-none">
+                                <option value="">اختر الموضوع</option>
+                                <option value="استشارة">استشارة</option>
+                                <option value="عرض سعر">عرض سعر</option>
+                                <option value="دعم">دعم فني</option>
+                                <option value="أخرى">أخرى</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="message" class="block text-gray-700 text-sm font-bold mb-2">الرسالة</label>
+                        <textarea id="message" rows="5"
+                            class="w-full px-4 py-3 rounded-lg bg-gray-50 border border-gray-200 focus:border-accent focus:bg-white focus:ring-1 focus:ring-accent outline-none transition-colors"
+                            placeholder="تفاصيل استفسارك..."></textarea>
+                        <div class="text-xs text-gray-400 mt-2 text-left" dir="ltr">
+                            Chars: <span id="char-count">0</span>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="submit-btn"
+                        class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-accent transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 w-full md:w-auto disabled:opacity-50 disabled:cursor-not-allowed">
+                        إرسال الرسالة
+                    </button>
+                </form>
+            </div>
         </div>
-    </section>
-    {{-- <section class="py-16 bg-primary text-white text-center">
-        <div class="container mx-auto px-4" data-aos="zoom-in">
-            <h2 class="text-3xl font-bold mb-4">هل لديك مشروع جاهز للتنفيذ؟</h2>
-            <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">نحن هنا لتحويل رؤيتك إلى واقع. تواصل معنا اليوم لاستشارة مجانية.</p>
-            <x-button :href="route('contact')" color="primary">اطلب عرض سعر</x-button>
-        </div>
-    </section> --}}
+
+
+
+    </div>
+</section>
+
 @endsection
+
+@push('scripts')
+<script>
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const alertBox = document.getElementById('contact-alert');
+    const emailInput = document.getElementById('email');
+    const nameInput = document.getElementById('name');
+    const subjectSelect = document.getElementById('subject');
+    const messageInput = document.getElementById('message');
+    const phoneInput = document.getElementById('phone');
+    const charCount = document.getElementById('char-count');
+
+    function showAlert(text, type) {
+        alertBox.textContent = text;
+
+        alertBox.className = 'mb-4 p-4 rounded-lg text-sm font-bold border ' + (type === 'success' ? 'bg-green-50 text-green-700 border-green-200' : 'bg-red-50 text-red-700 border-red-200');
+        alertBox.classList.remove('hidden');
+    }
+
+    function hideAlert() {
+        alertBox.classList.add('hidden');
+    }
+
+    function validEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    if(messageInput){
+        messageInput.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+        });
+    }
+
+    if(form){
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            hideAlert();
+
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const subject = subjectSelect.value.trim();
+            const message = messageInput.value.trim();
+            const phone = phoneInput.value.trim();
+
+            if (!name || !email || !subject || !message) {
+                showAlert('يرجى ملء جميع الحقول المطلوبة', 'error');
+                return;
+            }
+
+            if (!validEmail(email)) {
+                showAlert('صيغة البريد الإلكتروني غير صحيحة', 'error');
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin ml-2"></i> جاري الإرسال...';
+
+            try {
+                // تأكد من وجود الميتا تاج الخاص بـ csrf في الهيدر
+                const tokenElement = document.querySelector('meta[name="csrf-token"]');
+                const token = tokenElement ? tokenElement.getAttribute('content') : '';
+
+                const res = await fetch("{{ route('contact.submit') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': token,
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        subject,
+                        message,
+                        phone
+                    })
+                });
+
+                const data = await res.json();
+
+                if (res.ok && data.status === 'ok') {
+                    showAlert('تم إرسال رسالتك بنجاح، شكراً لتواصلك معنا.', 'success');
+                    form.reset();
+                    charCount.textContent = '0';
+                } else {
+                    showAlert('تعذر إرسال الرسالة، حاول لاحقاً', 'error');
+                }
+            } catch (err) {
+                showAlert('حدث خطأ غير متوقع', 'error');
+                console.error(err);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'إرسال الرسالة';
+            }
+        });
+    }
+</script>
+@endpush

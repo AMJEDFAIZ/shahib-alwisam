@@ -24,10 +24,13 @@ class ServiceController extends Controller
         if (! $service) {
             return redirect()->route('services.index')->with('error', 'عذراً، الخدمة المطلوبة غير موجودة.');
         }
+        // جلب 8 خدمات عشوائية
+        // ملاحظة: إذا كنت في صفحة خدمة، يفضل استبعاد الخدمة الحالية باستخدام where('slug', '!=', $slug)
+        $sidebarServices = Service::inRandomOrder()->limit(8)->get();
         $meta_title = $service->meta_title ?: $service->title;
         $meta_description = $service->meta_description ?: Str::limit(strip_tags($service->description ?? ''), 160);
         $meta_keywords = $service->title;
 
-        return view('services.show', compact('service', 'meta_title', 'meta_description', 'meta_keywords'));
+        return view('services.show', compact('service','sidebarServices', 'meta_title', 'meta_description', 'meta_keywords'));
     }
 }

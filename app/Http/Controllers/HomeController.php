@@ -12,6 +12,9 @@ use App\Models\Testimonial;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactAdminMail;
+use App\Mail\ContactAutoReplyMail;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -42,7 +45,7 @@ class HomeController extends Controller
     public function about()
     {
         $skills = Skill::where('active', true)->orderBy('sort_order')->get();
-         $totalprojects = Project::count();
+        $totalprojects = Project::count();
         $settings = Setting::all()->pluck('value', 'key');
         $meta_title = 'من نحن';
         $meta_description = $settings['site_description'] ?? null;
@@ -54,7 +57,7 @@ class HomeController extends Controller
             'مشاريعنا',
         ])->filter()->implode(', ');
 
-        return view('about', compact('skills', 'settings', 'meta_title', 'meta_description', 'meta_keywords','totalprojects'));
+        return view('about', compact('skills', 'settings', 'meta_title', 'meta_description', 'meta_keywords', 'totalprojects'));
     }
 
     public function contact()
@@ -83,7 +86,8 @@ class HomeController extends Controller
         ]);
         $adminEmail = Setting::where('key', 'email')->value('value') ?? config('mail.from.address');
         try {
-            Message::create([
+
+            $message = Message::create([
                 'name' => $validated['name'],
                 'email' => $validated['email'],
                 'phone' => $validated['phone'] ?? null,
@@ -91,6 +95,70 @@ class HomeController extends Controller
                 'message' => $validated['message'],
                 'is_read' => false,
             ]);
+            // البيانات المشتركة للإيميلات
+            $data = [
+                'name'    => $message->name,
+                'email'   => $message->email,
+                'phone'   => $message->phone,
+                'subject' => $message->subject,
+                'message' => $message->message,
+                'id'      => $message->id,
+            ];
+
+            //  إرسال إشعار للإدارة (Queue)
+            Mail::to($adminEmail)
+                ->queue(new ContactAdminMail($data));
+
+            //  رد تلقائي للعميل (Queue)
+            Mail::to($message->email)
+                ->queue(new ContactAutoReplyMail($data));
+
+            return response()->json([
+                'status' => 'ok'
+            ]);
+        } catch (\Throwable $e) {
+
+            // تسجيل الخطأ
+            Log::error($e);
+
+            return response()->json([
+                'status' => 'error',
+                'message' => 'حدث خطأ أثناء إرسال الرسالة'
+            ], 500);
+        }
+    }
+}
+
+
+/*
+    $validated = $request->validate([
+            'name' => ['required', 'string', 'max:100'],
+            'email' => ['required', 'email'],
+            'phone' => ['nullable', 'string', 'max:30'],
+            'subject' => ['required', 'string', 'max:50'],
+            'message' => ['required', 'string', 'max:500'],
+        ]);
+        $adminEmail = Setting::where('key', 'email')->value('value') ?? config('mail.from.address');
+        try {
+
+            $message = Message::create([
+                'name' => $validated['name'],
+                'email' => $validated['email'],
+                'phone' => $validated['phone'] ?? null,
+                'subject' => $validated['subject'],
+                'message' => $validated['message'],
+                'is_read' => false,
+            ]);
+            // البيانات المشتركة للإيميلات
+            $mailData = [
+                'name'    => $message->name,
+                'email'   => $message->email,
+                'phone'   => $message->phone,
+                'subject' => $message->subject,
+                'message' => $message->message,
+                'id'      => $message->id,
+            ];
+
             $body = "اسم: {$validated['name']}\nبريد: {$validated['email']}\nهاتف: " . ($validated['phone'] ?? '') . "\nموضوع: {$validated['subject']}\n\nرسالة:\n{$validated['message']}";
             Mail::raw($body, function ($m) use ($adminEmail, $validated) {
                 $m->to($adminEmail)->subject('رسالة تواصل جديدة: ' . $validated['subject']);
@@ -100,5 +168,5 @@ class HomeController extends Controller
         } catch (\Throwable $e) {
             return response()->json(['status' => 'error'], 500);
         }
-    }
-}
+
+*/

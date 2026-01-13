@@ -20,20 +20,13 @@
             <nav
                 class="flex justify-center items-center gap-2 text-sm md:text-base text-gray-300 animate-fade-in-up animation-delay-200">
                 <a href="{{ route('home') }}" class="hover:text-white transition-colors">الرئيسية</a>
-                <span {{-- class="text-accent" --}}>/</span>
+                <span >/</span>
                 <span class="text-accent/4 transition-colors py-1 relative  after:absolute after:bottom-0 after:right-0 after:w-full after:h-0.5 after:bg-accent after:transition-all">المقالات والأخبار</span>
             </nav>
         </div>
     </section>
 
-    {{-- <div class="bg-gray-100 py-12 border-b">
-    <div class="container mx-auto px-4">
-        <h1 class="text-3xl font-bold text-primary">المدونة</h1>
-        <nav class="text-sm mt-2 text-gray-500">
-            <a href="{{ route('home') }}" class="hover:text-primary">الرئيسية</a> / <span>المدونة</span>
-        </nav>
-    </div>
-</div> --}}
+  
 
     <section id="blog" class="py-20 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -99,7 +92,7 @@
                 </div>
 
                 <div class="mt-8">
-                    {{ $posts->links() }}
+                    {{ $posts->links('partials.pagination') }}
                 </div>
             @else
                 <div class="text-center text-gray-500 py-8">

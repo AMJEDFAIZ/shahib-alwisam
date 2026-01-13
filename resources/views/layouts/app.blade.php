@@ -21,7 +21,7 @@
     <body class="font-sans antialiased bg-gray-100">
         <div class="flex min-h-screen">
             <!-- Sidebar -->
-            @include('layouts.admin-sidebar')
+            {{-- @include('layouts.admin-sidebar') --}}
 
             <!-- Main Content -->
             <div class="flex-1 flex flex-col">
