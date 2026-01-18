@@ -44,6 +44,7 @@ class ProjectController extends Controller
 
         $data = $request->except('main_image');
 
+
         if ($request->hasFile('main_image')) {
 
 

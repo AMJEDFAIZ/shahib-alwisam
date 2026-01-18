@@ -40,6 +40,7 @@ class Project extends Model
                 }
                 $project->slug = $slug;
             }
+            
         });
 
         static::updating(function ($project) {
